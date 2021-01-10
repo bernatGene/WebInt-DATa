@@ -1,9 +1,9 @@
 import React from "react";
-import Researcher from "./researcher";
+import Roles from "./Roles";
 
 
 const AuthorisedPageContainer = () => ( 
-    <Researcher />
+    <Roles />
 );
 
 export default AuthorisedPageContainer;

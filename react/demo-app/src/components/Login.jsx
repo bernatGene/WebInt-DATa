@@ -27,7 +27,7 @@ function Login() {
     ) {
       store.set("authorised", true);
       setErrorText("");
-      window.location.href="/Authorised"
+      window.location.href="/Roles"
     } else {
       setErrorText("Invalid Credentials");
     }
