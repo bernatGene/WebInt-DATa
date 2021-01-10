@@ -6,6 +6,7 @@ import AuthorisedPageContainer from "./components/authorised-page-container";
 import Roles from "./components/Roles";
 import store from "store";
 import Researcher from "./components/researcher";
+import Annotator from "./components/Annotator"
 
 function App() {
   return (
@@ -34,6 +35,11 @@ function App() {
               path="/researcher"
               exact
               component={() => <Researcher/>}
+            />{" "}
+            <Route
+              path="/annotator"
+              exact
+              component={() => <Annotator/>}
             />{" "}
           </Switch>{" "}
         </Layout>{" "}
