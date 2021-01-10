@@ -60,7 +60,7 @@ function Home(props) {
                 </div>
               </AuthFormBox>
             </div>
-            <div className="row">
+            {/* <div className="row">
               <div className="col-md-12">
                 <h3 className="text-center heading">Select your Role</h3>
               </div>
@@ -84,8 +84,8 @@ function Home(props) {
                   name="annotator"
                   value="Annotator"
                 />
-              </div>
-            </div>
+              </div> 
+  </div>*/}
             <div className="or-container">
               <div className="line-separator"></div>
               <div className="or-label">or</div>

@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
+import store from "store";
 
 function Navigation(props) {
   return (
@@ -22,25 +23,39 @@ function Navigation(props) {
           </button>
           <div className="collapse navbar-collapse" id="navbarResponsive">
             <ul className="navbar-nav ml-auto">
-              <li
-                className={`nav-item  ${
-                  props.location.pathname === "/" ? "active" : ""
-                }`}
-              >
-                <Link className="nav-link" to="/">
-                  Home
-                  <span className="sr-only">(current)</span>
-                </Link>
-              </li>
-              <li
-                className={`nav-item  ${
-                  props.location.pathname === "/login" ? "active" : ""
-                }`}
-              >
-                <Link className="nav-link" to="/login">
-                  Login
-                </Link>
-              </li>
+              {store.get("authorised") ? (
+                <li>
+                  <Link
+                    className="nav-link"
+                    to="/"
+                    onClick={() => store.set("authorised", false)}
+                  >
+                    Logout
+                  </Link>
+                </li>
+              ) : (
+                <>
+                  <li
+                    className={`nav-item  ${
+                      props.location.pathname === "/" ? "active" : ""
+                    }`}
+                  >
+                    <Link className="nav-link" to="/">
+                      Home
+                      <span className="sr-only">(current)</span>
+                    </Link>
+                  </li>
+                  <li
+                    className={`nav-item  ${
+                      props.location.pathname === "/login" ? "active" : ""
+                    }`}
+                  >
+                    <Link className="nav-link" to="/login">
+                      Login
+                    </Link>
+                  </li>
+                </>
+              )}
               <li
                 className={`nav-item  ${
                   props.location.pathname === "/about" ? "active" : ""
