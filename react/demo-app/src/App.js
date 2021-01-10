@@ -16,14 +16,14 @@ function App() {
             <Route
               path="/"
               exact
-              component={() => store.get("authorised") ? <Login /> : <Home />}
+              component={() => store.get("authorised") ? <Roles /> : <Home />}
             />{" "}
             <Route path="/about" exact component={() => <About />} />{" "}
             <Route path="/contact" exact component={() => <Contact />} />{" "}
             <Route
-              path="/Roles"
+              path="/login"
               exact
-              component={() => <Roles/>}
+              component={() => store.get("authorised") ? <Roles /> : <Login />}
             />{" "}
             <Route
               path="/Authorised"

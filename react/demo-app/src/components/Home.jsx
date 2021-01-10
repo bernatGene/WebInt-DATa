@@ -23,7 +23,8 @@ function Home(props) {
     // Set credentials in localStorage
     store.set("username", email);
     store.set("password", password);
-    alert("Registration successful. Please log in")
+    alert("Registration successful.")
+    window.location.reload();
   };
   return (
     <div className="home">
