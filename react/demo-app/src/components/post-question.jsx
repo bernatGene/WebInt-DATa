@@ -1,7 +1,7 @@
 import React from "react";
-import Heading from "./heading/heading";
-import TextArea from "./textarea/textarea";
-import Button from "./button/button";
+import Heading from "./heading";
+import TextArea from "./textarea";
+import Button from "./button";
 import { PropTypes } from "prop-types";
 
 const PostQuestion = ({ questionValue = "", handleSubmit, handleChange }) => (
