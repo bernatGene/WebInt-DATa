@@ -14,20 +14,16 @@ function Roles(props) {
       <div className="row">
       <div className="col-md-12">
         {" "}
-      <Button>
         <HyperLink path="/researcher">
-          <span style={{ color: "white" }}>Researcher</span>
-        </HyperLink>
-      </Button> 
+        <Button>Researcher</Button>
+      </HyperLink>
       </div>
       <br />
       <div className="col-md-12">
         {" "}
-        <Button>
-        <HyperLink path="/annotator">
-          <span style={{ color: "white" }}>Annotator</span>
-        </HyperLink>
-      </Button>
+      <HyperLink path="/annotator">
+        <Button>Annotator</Button>
+      </HyperLink>
       </div>
     </div> </div>
   );
