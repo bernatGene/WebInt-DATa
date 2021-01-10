@@ -1,6 +1,5 @@
 import React from "react";
 import { PropTypes } from "prop-types";
-import "./textarea.css";
 
 const TextArea = ({ value = "", label = "", name, handleChange }) => (
   <div class="form-floating">

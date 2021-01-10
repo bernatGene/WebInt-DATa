@@ -1,13 +1,9 @@
 import React from "react";
-import Researcher from "../pages/researcher";
-import Layout from "./layout";
-import Roles from "../pages/roles";
+import Researcher from "./researcher";
 
-const AuthorisedPageContainer = () => (
-  <Layout>
-    <Roles /> 
+
+const AuthorisedPageContainer = () => ( 
     <Researcher />
-  </Layout>
 );
 
 export default AuthorisedPageContainer;

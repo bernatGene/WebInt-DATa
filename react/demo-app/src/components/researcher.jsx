@@ -1,35 +1,42 @@
-import React from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useRouteMatch,
-  useParams
-} from "react-router-dom";
-import Summary from './summary'
-import CreateTask from './createTask'
+import React, { useState } from "react";
+import PostQuestion from "./post-question";
+import store from "store";
+import QuestionListItem from "./question-list-item";
+import Heading from "./heading";
 
 const Researcher = () => {
-  let match = useRouteMatch();
-  return (
-    <div>
-    	<h3>Researcher Role:</h3>
-      <li>
-          <Link to={`${match.url}/createTask`}>Create a Task</Link>
-      </li>
-      <li>
-          <Link to={`${match.url}/summary`}>Summary</Link>
-      </li>
-      <Switch>
-          <Route path={`${match.path}/createTask/`}>
-            <CreateTask />
-          </Route>
-          <Route path={`${match.path}/summary/`}>
-            <Summary />
-          </Route>
-      </Switch>
-    </div>
+  const [question, setQuestion] = useState("");
+  const [questionList, setQuestionList] = useState(
+    store.get("questionList") || []
   );
-}
+  const handleQuestionChange = (e) => {
+    setQuestion(e.target.value);
+  };
+  const handleQuestionSubmit = (e) => {
+    questionList.push({
+      question: question,
+    });
+    console.log(questionList);
+    setQuestionList(questionList);
+    store.set("questionList", questionList);
+  };
+
+  return (
+    <>
+      <Heading>Researcher</Heading>
+      <PostQuestion
+        questionValue={question}
+        handleSubmit={handleQuestionSubmit}
+        handleChange={handleQuestionChange}
+      ></PostQuestion>
+      {questionList &&
+        questionList.map((questionItem, idx) => (
+          <QuestionListItem key={`question-${idx}`}>{`${idx + 1} - ${
+            questionItem.question
+          }`}</QuestionListItem>
+        ))}
+    </>
+  );
+};
+
 export default Researcher;
