@@ -3,7 +3,9 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Home, About, Contact, Login } from "./components";
 import Layout from "./components/layout";
 import AuthorisedPageContainer from "./components/authorised-page-container";
+import Roles from "./components/Roles";
 import store from "store";
+import Researcher from "./components/researcher";
 
 function App() {
   return (
@@ -19,9 +21,19 @@ function App() {
             <Route path="/about" exact component={() => <About />} />{" "}
             <Route path="/contact" exact component={() => <Contact />} />{" "}
             <Route
+              path="/Roles"
+              exact
+              component={() => <Roles/>}
+            />{" "}
+            <Route
               path="/Authorised"
               exact
               component={() => <AuthorisedPageContainer />}
+            />{" "}
+            <Route
+              path="/researcher"
+              exact
+              component={() => <Researcher/>}
             />{" "}
           </Switch>{" "}
         </Layout>{" "}
