@@ -52,6 +52,13 @@ function Login() {
                 handleChange={handlePasswordChange}
                 type="password"
               />
+              {/* <Input
+                name="password"
+                placeholder="Password"
+                value={Repeat}
+                handleChange={handlePasswordChange}
+                type="password"
+              /> */}
               <div>
                 <Button>Login</Button>
               </div>

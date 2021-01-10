@@ -22,20 +22,29 @@ const Researcher = () => {
   };
 
   return (
-    <>
-      <Heading>Researcher</Heading>
-      <PostQuestion
-        questionValue={question}
-        handleSubmit={handleQuestionSubmit}
-        handleChange={handleQuestionChange}
-      ></PostQuestion>
-      {questionList &&
-        questionList.map((questionItem, idx) => (
-          <QuestionListItem key={`question-${idx}`}>{`${idx + 1} - ${
-            questionItem.question
-          }`}</QuestionListItem>
-        ))}
-    </>
+    <div className="researcher">
+      <div className="container">  
+        <div className="row align-items-left my-5">
+          <div className="col-lg-7">
+            <h1>Researcher</h1>
+          </div>
+          <br/>
+          <div className="col-lg-7">
+            <PostQuestion
+              questionValue={question}
+              handleSubmit={handleQuestionSubmit}
+              handleChange={handleQuestionChange}
+            ></PostQuestion>
+            {questionList &&
+              questionList.map((questionItem, idx) => (
+                <QuestionListItem key={`question-${idx}`}>{`${idx + 1} - ${questionItem.question
+                  }`}</QuestionListItem>
+              ))}
+          </div>
+        </div> 
+      </div> 
+    </div>
+    // </div>
   );
 };
 

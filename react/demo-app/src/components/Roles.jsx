@@ -5,27 +5,29 @@ import HyperLink from "./hyperlink";
 
 function Roles(props) {
   return (
-    <div>
-      <div className="row">
-        <div className="col-md-12">
-          <h3 className="text-center heading">Select your Role</h3>
-        </div>
+    <div className="roles">
+        <div className="container">
+          <div className="row align-items-center my-5">
+          <div className="col-lg-5">
+            <h1 className="font-weight-light">Select Your Role</h1>
+          </div> 
+          <br/>
+          <div className="col-sm-8">
+            {" "}
+            <HyperLink path="/researcher">
+              <Button>Researcher</Button>
+            </HyperLink>
+          </div>
+          <br />
+          <div className="col-sm-8">
+            {" "}
+            <HyperLink path="/annotator">
+              <Button>Annotator</Button>
+            </HyperLink>                  
+          </div>
+          </div>
       </div>
-      <div className="row">
-      <div className="col-md-12">
-        {" "}
-        <HyperLink path="/researcher">
-        <Button>Researcher</Button>
-      </HyperLink>
-      </div>
-      <br />
-      <div className="col-md-12">
-        {" "}
-      <HyperLink path="/annotator">
-        <Button>Annotator</Button>
-      </HyperLink>
-      </div>
-    </div> </div>
+    </div>
   );
 }
 export default withRouter(Roles);

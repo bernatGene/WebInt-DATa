@@ -5,15 +5,23 @@ import Button from "./button";
 import { PropTypes } from "prop-types";
 
 const PostQuestion = ({ questionValue = "", handleSubmit, handleChange }) => (
-  <form onSubmit={handleSubmit}>
-    <Heading>Post your question</Heading>
-    <TextArea
-      name="question"
-      value={questionValue}
-      handleChange={handleChange}
-    />
-    <Button>Post</Button>
-  </form>
+
+      //  <div className="row"> 
+        <div>
+          <form onSubmit={handleSubmit}>
+            <Heading>Post your question</Heading>
+            {/* <div className="col-sm-5"> */}
+              <TextArea
+                  name="question"
+                  value={questionValue}
+                  handleChange={handleChange}
+                />
+            
+              <Button>Post</Button>
+            {/* </div> */}
+          </form>
+        </div>
+      // </div>
 );
 
 PostQuestion.propTypes = {
