@@ -10,17 +10,17 @@
 
 <body>
 	<header>
-		<div class="flex">
-			<div class="logo">
+		<div className="flex">
+			<div className="logo">
 				<a href="#">
 					My Videos
 				</a>
 			</div>
 			<nav>
-				<button id="nav-toggle" class="hamburger-menu">
-					<span class="strip"></span>
-					<span class="strip"></span>
-					<span class="strip"></span>
+				<button id="nav-toggle" className="hamburger-menu">
+					<span className="strip"></span>
+					<span className="strip"></span>
+					<span className="strip"></span>
 				</button>
 				<ul id="nav-menu-container">
 					<li>
@@ -36,7 +36,7 @@
 	</header>
 	
 	
-	<div class="grid-row reverse video-gallery logo">
+	<div className="grid-row reverse video-gallery logo">
 		
 		<h2> VIDEO JUKEBOX</h2>
 
@@ -44,26 +44,26 @@
 			<h3>Playing Video 1/6</h3>
 		</label>
 
-		<input type="radio" class="options" value="1" name="video-list" id="video-1" checked="checked" />
+		<input type="radio" className="options" value="1" name="video-list" id="video-1" checked="checked" />
 			<label for="video-1">Video 1</label>
 		
-		<input type="radio" class="options" value="2" name="video-list" id="video-2" />
+		<input type="radio" className="options" value="2" name="video-list" id="video-2" />
 			<label for="video-2">Video 2</label>
 		
-		<input type="radio" class="options" value="3" name="video-list" id="video-3" />
+		<input type="radio" className="options" value="3" name="video-list" id="video-3" />
 			<label for="video-3">Video 3</label>
 		
-		<input type="radio" class="options" value="4" name="video-list" id="video-4" />
+		<input type="radio" className="options" value="4" name="video-list" id="video-4" />
 			<label for="video-4">Video 4</label>
 		
-		<input type="radio" class="options" value="5" name="video-list" id="video-5" />
+		<input type="radio" className="options" value="5" name="video-list" id="video-5" />
 			<label for="video-5">Video 5</label>
 		
-		<input type="radio" class="options" value="6" name="video-list" id="video-6" />
+		<input type="radio" className="options" value="6" name="video-list" id="video-6" />
 			<label for="video-6">Video 6</label>
 		
 		<!-- videos -->
-		<div class="video">
+		<div className="video">
 				<video controls width="560" height="315" id="vid">
 					<source src="https://archive.org/download/jabludbael49ukar0kowedengduet/1.mp4" type="video/mp4">
 				</video>
@@ -77,11 +77,11 @@
 	<!-- Search Box for video -->
 	<form>
 		<label>URL :
-			<input size="126" type="url" class="search-box" value="" name="search-box" id="urlbox" />
+			<input size="126" type="url" className="search-box" value="" name="search-box" id="urlbox" />
 		</label>
 		<br /><br />
 		<label>Seek :
-			<input size="10" type="number" class="search-box" value="" name="search-box" id="seekbox" />
+			<input size="10" type="number" className="search-box" value="" name="search-box" id="seekbox" />
 		</label>
 		<br/><br/>
 		<label>
@@ -105,7 +105,7 @@
 	<!-- Canvas for generating the preview -->
 	<canvas id="preivew-canvas">Your browser does not support the HTML5 canvas tag.</canvas>
 
-	<div style="display:none;" class="form" id="register-form">
+	<div style="display:none;" className="form" id="register-form">
 	<!-- <form id="register-form"> -->
 		<input id="login_name" type="text" placeholder="Name" value="" />
 		<input id="pw" type="password" placeholder="Password" value="" />
@@ -114,7 +114,7 @@
 	<!-- </form> -->
 	</div>
 
-	<div style="display:none;" class="form" id="login-form">
+	<div style="display:none;" className="form" id="login-form">
 	<!-- <form id="login-form"> -->
 		<input id="userName" type="text" placeholder="Enter Username" value="" />
 		<input id="userPw" type="password" placeholder="Enter Password" value="" />
@@ -134,7 +134,7 @@
 	<script type="text/javascript" src="javascript/test.js"></script>
 
 	<footer>
-		<div class="flex">
+		<div className="flex">
 			<small>&copy; 2019 Aditya Mohan, EURECOM France</small>
 		</div>
 	</footer>
