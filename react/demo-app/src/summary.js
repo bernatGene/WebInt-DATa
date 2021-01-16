@@ -8,14 +8,14 @@ import {
   useParams
 } from "react-router-dom";
 
-var taskName = "Default Task Name"
+var TaskName = "Default Task Name"
 
 const Summary = () => {
   return (
     <div>
-      <h3> Summary of tasks </h3>
+      <h3> Summary of Tasks </h3>
       <p>
-        Here you can see a list of your active tasks with a brief summary of their stats  
+        Here you can see a list of your active Tasks with a brief summary of their stats  
       </p>
       <li>
         <Link >Task 1</Link>

@@ -16,16 +16,16 @@ const Annotator = () => {
   return (
     <div>
     	<h3>Annotator role:</h3>
-      <p> Here you would browse tasks and select one </p>
+      <p> Here you would browse Tasks and select one </p>
 
 		  <li>
-          <Link to={`${match.url}/completeTask/task1`}>Task 1</Link>
+          <Link to={`${match.url}/completeTask/Task1`}>Task 1</Link>
       </li>
       <li>
-          <Link to={`${match.url}/completeTask/task2`}>Task 2</Link>
+          <Link to={`${match.url}/completeTask/Task2`}>Task 2</Link>
       </li>
       <Switch>
-          <Route path={`${match.path}/completeTask/:taskname`}>
+          <Route path={`${match.path}/completeTask/:Taskname`}>
             <CompleteTask />
           </Route>
       </Switch>

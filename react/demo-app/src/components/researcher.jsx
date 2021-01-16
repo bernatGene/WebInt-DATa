@@ -1,25 +1,15 @@
 import React, { useState } from "react";
-import PostQuestion from "./post-question";
 import store from "store";
-import QuestionListItem from "./question-list-item";
+import TaskListItem from "./task-list-item";
 import Heading from "./heading";
+import Button from "./button";
+import HyperLink from "./hyperlink";
 
 const Researcher = () => {
-  const [question, setQuestion] = useState("");
-  const [questionList, setQuestionList] = useState(
-    store.get("questionList") || []
+  const [Task, setTask] = useState("");
+  const [TaskList, setTaskList] = useState(
+    store.get("TaskList") || []
   );
-  const handleQuestionChange = (e) => {
-    setQuestion(e.target.value);
-  };
-  const handleQuestionSubmit = (e) => {
-    questionList.push({
-      question: question,
-    });
-    console.log(questionList);
-    setQuestionList(questionList);
-    store.set("questionList", questionList);
-  };
 
   return (
     <div className="researcher">
@@ -30,17 +20,18 @@ const Researcher = () => {
           </div>
           <br/>
           <div className="col-lg-7">
-            <PostQuestion
-              questionValue={question}
-              handleSubmit={handleQuestionSubmit}
-              handleChange={handleQuestionChange}
-            ></PostQuestion>
-            {questionList &&
-              questionList.map((questionItem, idx) => (
-                <QuestionListItem key={`question-${idx}`}>{`${idx + 1} - ${questionItem.question
-                  }`}</QuestionListItem>
+            <HyperLink path="/createTask">
+              <Button>Create new Task</Button>
+            </HyperLink>
+            {TaskList &&
+              TaskList.map((TaskItem, idx) => (
+                <TaskListItem key={`Task-${idx}`}>{`${idx + 1} - ${TaskItem.Task
+                  }`}</TaskListItem>
               ))}
           </div>
+          <HyperLink path="/annotator">
+            <Button>Change role to annotator</Button>
+          </HyperLink>
         </div> 
       </div> 
     </div>

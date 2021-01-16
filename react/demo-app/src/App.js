@@ -7,6 +7,9 @@ import Roles from "./components/Roles";
 import store from "store";
 import Researcher from "./components/researcher";
 import Annotator from "./components/Annotator"
+import CreateTask from "./components/createTask"
+import CompleteTask from "./components/CompleteTask"
+import Summary from "./components/Summary"
 
 function App() {
   return (
@@ -40,6 +43,21 @@ function App() {
               path="/annotator"
               exact
               component={() => <Annotator/>}
+            />{" "}
+            <Route
+              path="/createTask"
+              exact
+              component={() => <CreateTask/>}
+            />{" "}
+            <Route
+              path="/completeTask/:Tasknum"
+              exact
+              component={() => <CompleteTask/>}
+            />{" "}
+            <Route
+              path="/summary/:Tasknum"
+              exact
+              component={() => <Summary/>}
             />{" "}
           </Switch>{" "}
         </Layout>{" "}

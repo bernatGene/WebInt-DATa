@@ -1,17 +1,35 @@
 import React from "react";
 import { PropTypes } from "prop-types";
 
-const TextArea = ({ value = "", label = "", name, handleChange }) => (
+const TextArea = ({ value = "", desvalue = "", label = "", name, handleChange }) => (
   <div class="form-floating">
     <textarea
       class="form-control"
-      placeholder="Leave a question here"
+      placeholder="Task name"
       id="floatingTextarea"
       value={value}
       name={name}
       onChange={handleChange}
     ></textarea>
+    <textarea
+      class="form-control"
+      placeholder="Task name"
+      id="floatingTextarea"
+      value={desvalue}
+      name={name}
+      onChange={handleChange}
+    ></textarea>
     <label htmlFor="floatingTextarea">{label}</label>
+{/*    <textarea
+      class="form-control"
+      placeholder="Desription"
+      id="floatingTextarea2"
+      value={value}
+      name={name}
+      onChange={handleChange}
+    ></textarea>
+    <label htmlFor="floatingTextarea2">{label}</label>*/}
+
   </div>
 );
 
