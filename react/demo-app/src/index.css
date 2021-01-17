@@ -96,6 +96,14 @@ body {
     cursor: pointer
 }
 
+button {
+    border-radius: 2px;
+    text-transform: capitalize;
+    font-size: 15px;
+    padding: 10px 19px;
+    cursor: pointer
+}
+
 .m-b-20 {
     margin-bottom: 20px
 }
@@ -117,21 +125,53 @@ span{
 color: gray;
 }
 
-.input {
-  font-size: 16px;
-  font-size: max(16px, 1em);
-  font-family: inherit;
-  padding: 0.25em 0.5em;
-  background-color: #fff;
-  border: 2px solid var(--input-border);
-  border-radius: 4px;
+
+form {
+ padding: remy(32px);
+ margin-top: 2rem;
+ margin-right: auto;
+ margin-left: auto;
+ max-width: remy(380px);
+ background-color: #fff;
+ border-radius: $radius;
+ box-shadow: 0 15px 35px rgba(50,50,93,.1),0 5px 15px rgba(0,0,0,.07);
 }
 
-textarea.input {
-  resize: vertical;
+
+label {
+ display: inline-block;
+ margin-bottom: .5rem;
+ font-size: 1.75rem;
+ touch-action: manipulation;
 }
 
+input,
+textarea {
+ display: block;
+ padding: .5rem .75rem;
+ width: 100%;
+ font-size: 1rem;
+ line-height: 1.25;
+ color: #55595c;
+ background-color: #fff;
+ background-image: none;
+ background-clip: padding-box;
+ border-top: 0;
+ border-right: 0;
+ border-bottom: 1px solid $color-grey;
+ border-left: 0;
+ border-radius: $radius;
+ @include transition;
 
+ &:focus {
+  outline: 0;
+  border-bottom-color: $color-primary;
+ }
+}
+
+textarea {
+ resize: vertical;
+}
 
 
 #infoMessage p {

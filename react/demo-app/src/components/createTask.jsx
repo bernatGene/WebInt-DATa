@@ -18,6 +18,7 @@ var TaskName = "Default Task Name";
 const CreateTask = () => {
   const history = useHistory();
   const [title, setTitle] = useState("");
+  const [length, setLength] = useState(0);
   const [description, setDescription] = useState("");
   const [TaskList, setTaskList] = useState(
     store.get("TaskList") || []
@@ -28,10 +29,15 @@ const CreateTask = () => {
   const handleTitleChange = (e) => {
     setTitle(e.target.value);
   };
+  const handleLengthChange = (e) => {
+    setLength(e.target.value);
+  };
   const handleTaskSubmit = (e) => {
     TaskList.push({
       Task: title,
       description: description,
+      length: length,
+      labels: []
     });
     console.log(TaskList);
     setTaskList(TaskList);
@@ -43,13 +49,17 @@ const CreateTask = () => {
     <div>
     <div className="container">
     <h1>Create a new Task</h1>
+      <div class='flex-container'>
       <form className="myform" onSubmit={handleTaskSubmit}>
+            <div>
             <label> Task title
             <input
               name="title"
               type="text"
               onChange={handleTitleChange} />
             </label>
+            <div>
+            </div>
             <label> Description
             <textarea
               name="description"
@@ -57,9 +67,27 @@ const CreateTask = () => {
               value={description}
               onChange={handleDescriptionChange} />
             </label>
+            <div>
+            </div>
+            <label> Dataset length (# of Pictures)
+            <input
+              name="numpic"
+              type="number"
+              value={length}
+              onChange={handleLengthChange}/>
+            </label>
+            <div>
+            </div>
+            <label> Upload Pictures
+            <input
+              name="upload"
+              type="file"/>
+            </label>
+            </div>
             
             <Button>Create</Button>
       </form>
+      </div>
     </div>
     </div>
   );
