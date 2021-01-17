@@ -26,7 +26,7 @@ const Researcher = () => {
             {TaskList &&
               TaskList.map((TaskItem, idx) => (
                 <TaskListItem key={`Task-${idx}`}>{`${idx + 1} - ${TaskItem.Task
-                  }`}</TaskListItem>
+                  } - Progress: ${TaskItem.labels.length} / ${TaskItem.length} `}</TaskListItem>
               ))}
           </div>
           <HyperLink path="/annotator">
