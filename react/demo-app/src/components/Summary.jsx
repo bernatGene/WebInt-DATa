@@ -33,7 +33,7 @@ const Summary = () => {
           <h3> Description: </h3>
           <p> {description}</p> 
           <h3> Progress: </h3>
-          <p> {completed} / {length} </p>
+          <p> {completed} / {length} {completed  >= length ? 'Completed !' : '' } </p>
           <h4> Just to show the labels: </h4>
           <p> {labels} </p>
           <HyperLink path="/researcher">
