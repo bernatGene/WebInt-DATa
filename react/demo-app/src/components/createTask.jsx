@@ -17,7 +17,7 @@ var TaskName = "Default Task Name";
 
 const CreateTask = () => {
   const history = useHistory();
-  const [title, setTitle] = useState("");
+  const [title, setTitle] = useState("Unnamed task");
   const [length, setLength] = useState(0);
   const [description, setDescription] = useState("");
   const [TaskList, setTaskList] = useState(
@@ -49,8 +49,8 @@ const CreateTask = () => {
     <div>
     <div className="container">
     <h1>Create a new Task</h1>
-      <div class='flex-container'>
-      <form className="myform" onSubmit={handleTaskSubmit}>
+      <div className='flex-container'>
+      <form className='form' onSubmit={handleTaskSubmit}>
             <div>
             <label> Task title
             <input

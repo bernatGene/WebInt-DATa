@@ -19,7 +19,7 @@ const Annotator = () => {
   const [TaskList, setTaskList] = useState(
     store.get("TaskList") || []
   );
-
+  var checkmark = '✓';
   return (
     <div className="annotator">
       <div className="container">  
@@ -30,10 +30,15 @@ const Annotator = () => {
           <br/>
           <div className="col-lg-7">
             {TaskList &&
-              TaskList.map((TaskItem, idx) => (
+              TaskList.map((TaskItem, idx) => {
+                return `${TaskItem.length}` <= `${TaskItem.labels.length}` ?
                 <TaskListItem key={`Task-${idx}`}>{`${idx + 1} - ${TaskItem.Task
-                  } - Progress: ${TaskItem.labels.length} / ${TaskItem.length} `}</TaskListItem>
-              ))}
+                  } - ${TaskItem.labels.length} / ${TaskItem.length} ${checkmark}`}</TaskListItem>
+                  :
+                <TaskListItem key={`Task-${idx}`}>{`${idx + 1} - ${TaskItem.Task
+                } -  ${TaskItem.labels.length} / ${TaskItem.length}`}</TaskListItem>
+              })
+            }
           </div>
           <HyperLink path="/researcher">
             <Button>Change role to Researcher</Button>

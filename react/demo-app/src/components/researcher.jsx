@@ -10,6 +10,7 @@ const Researcher = () => {
   const [TaskList, setTaskList] = useState(
     store.get("TaskList") || []
   );
+  const checkmark = '✓';
 
   return (
     <div className="researcher">
@@ -24,10 +25,15 @@ const Researcher = () => {
               <Button>Create new Task</Button>
             </HyperLink>
             {TaskList &&
-              TaskList.map((TaskItem, idx) => (
+              TaskList.map((TaskItem, idx) => {
+                return `${TaskItem.length}` <= `${TaskItem.labels.length}` ?
                 <TaskListItem key={`Task-${idx}`}>{`${idx + 1} - ${TaskItem.Task
-                  } - Progress: ${TaskItem.labels.length} / ${TaskItem.length} `}</TaskListItem>
-              ))}
+                  } - ${TaskItem.labels.length} / ${TaskItem.length} ${checkmark}`}</TaskListItem>
+                  :
+                <TaskListItem key={`Task-${idx}`}>{`${idx + 1} - ${TaskItem.Task
+                } -  ${TaskItem.labels.length} / ${TaskItem.length}`}</TaskListItem>
+              })
+            }
           </div>
           <HyperLink path="/annotator">
             <Button>Change role to annotator</Button>

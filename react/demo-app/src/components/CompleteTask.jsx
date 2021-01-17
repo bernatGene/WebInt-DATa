@@ -64,14 +64,13 @@ const CompleteTask = () => {
           <div className="image-container">
             <h1>Place Holder for image: {completed}</h1>
           </div>
-            <div>
+            <div className="horizontal">
             <button className="btn btn-primary btn-md waves-effect text-center m-b-20" onClick={() => handleClick(0)}> Cat </button>
-            </div>
-            <div>
+            
             <button className="btn btn-primary btn-md waves-effect text-center m-b-20" onClick={() => handleClick(1)}> Dog </button>
             </div>
           
-          <button className="btn btn-primary btn-block btn-md waves-effect text-center m-b-20"
+          <button className="btn btn-primary  btn-md waves-effect text-center m-b-20"
           onClick={handleCompletion}>Complete</button>
           
         </div>

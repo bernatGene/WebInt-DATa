@@ -18,7 +18,11 @@ const TaskListItem = ({ children }) => {
 		if (role == "/annotator") {return "/completeTask/"}
 	}
 	let showAs = f_showAs(match.url)
-
+	const checkmark = '✓';
+	let li_class = children.charAt(children.length -1) == checkmark ? 
+					"alert alert-primary completed"
+					: "alert alert-primary";
+	
 	return (
 	<div>
 	<Link to={{
@@ -28,7 +32,7 @@ const TaskListItem = ({ children }) => {
 			    }
 			    
   			}}>
-		<li class="alert alert-primary">{children}</li>
+		<li class={li_class}>{children}</li>
 	</Link>
 	
   	</div>
