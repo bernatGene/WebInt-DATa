@@ -24,7 +24,7 @@ export const Task = () => {
   const  handleClick = () => {
     TaskList.push({
       Task: taskName,
-      length: taskLength,
+      length: images.length,
       labels: []
 
     });

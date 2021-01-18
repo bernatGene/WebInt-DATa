@@ -148,6 +148,7 @@ label {
 }
 
 input,
+select,
 textarea {
  display: block;
  padding: .5rem .75rem;
@@ -189,6 +190,7 @@ li.completed {
     background-color: #ffffff;
     box-shadow: 0 1px 2px 1px #ddd
 }
+
 
 .or-container {
     align-items: center;

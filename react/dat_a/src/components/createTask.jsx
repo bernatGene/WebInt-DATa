@@ -8,7 +8,6 @@ import {
   useRouteMatch,
   useParams,
 } from "react-router-dom";
-
 import TaskListItem from "./task-list-item";
 import { useHistory } from "react-router-dom";
 // import AuthFormBox from "./auth-form-box";
@@ -68,61 +67,18 @@ const CreateTask = () => {
       labels: []
     });
     setTaskList(TaskList);
-    store.set("TaskList", TaskList);
-    console.log("creation");
-    console.log(TaskList);
+    // store.set("TaskList", TaskList);
     history.push("/researcher")
     setTaskName("");
   };
 
-  const history = useHistory();
+  const onCancel = () => {
+    console.log("CANCEL")
+    history.push("/researcher")
+    setTaskName("");
+  };
 
-  // const onTaskSubmit = (e) => {
-  //   if(!taskName ||){
-  //     return
-  //   }
-    
-    
-  //   db.collection("tasks").doc(taskName).set({
-  //     name: taskName,
-  //     description: taskDescription,
-  //     length: 0,
-  //     labels: []
-  //   });
-  // }
-
-
-
-  // const [title, setTitle] = useState("Unnamed task");
-  // const [TaskList, setTaskList] = useState(
-  //   store.get("TaskList") || []
-  // );
-  // const handleDescriptionChange = (e) => {
-    // setDescription(e.target.value);
-  // };
-  // const handleTitleChange = (e) => {
-    // setTitle(e.target.value);
-  // };
-  // const handleLengthChange = (e) => {
-    // setLength(e.target.value);
-  // };
-  // const handleTaskSubmit = (e) => {
-  //   TaskList.push({
-  //     Task: title,
-  //     description: description,
-  //     length: length,
-  //     labels: []
-  //   });
-  //   console.log(TaskList);
-  //   setTaskList(TaskList);
-  //   store.set("TaskList", TaskList);
-  //   console.log("creation");
-  //   history.push("/researcher");
-  // };
-  
-  
-  
-  
+  const history = useHistory();  
   
   return (
     <div>
@@ -138,8 +94,16 @@ const CreateTask = () => {
                     value={taskName}
                     onChange={onTaskNameChange} />
                   </label>
-                <div>
                 </div>
+                <div>
+                  <label> Type of task
+                  <select >
+                      <option selected value="binary">Binary classification</option>
+                      <option value="other">Other (Unsupported)</option>
+                  </select>    
+                  </label>
+                </div>
+                <div>
                 <label> Description
                 <textarea
                   name="description"
@@ -147,8 +111,8 @@ const CreateTask = () => {
                   value={taskDescription}
                   onChange={onTaskDescriptionChange} />
                 </label>
-                <div>
                 </div>
+                <div>
                 <label> Dataset length (# of Pictures)
                 <input
                   name="numpic"
@@ -156,15 +120,15 @@ const CreateTask = () => {
                   value={taskLength}
                   onChange={onTaskLengthChange}/>
                 </label>
-                <div>
                 </div>
+                <div>
                 {/* <label> Upload Pictures
                   NewImage
                 </label> */}
+                <Button onClick={onTaskSubmit}>Create</Button>                
                 </div>
-                
-                <Button onClick={onTaskSubmit}>Create</Button>
           </form>
+          <button onClick={onCancel}>Cancel</button>
         </div>
       </div>
     </div>
