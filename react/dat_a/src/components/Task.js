@@ -2,18 +2,38 @@ import React, { useState, useEffect } from "react";
 import { useRouteMatch, Link } from "react-router-dom";
 import { NewImage } from "./NewImage";
 import { app } from "../base";
+import store from "store";
+import { useHistory } from "react-router-dom";
 
 const db = app.firestore();
 
 export const Task = () => {
+  const history = useHistory();
   const [images, setImages] = useState([]);
   const [taskName, setTaskName] = useState("");
   const [taskLength, setTaskLength] = useState(0);
+  const [TaskList, setTaskList] = useState(
+    store.get("TaskList") || []
+  );
   const [taskDescription, setTaskDescription] = useState("");
   
 
   const match = useRouteMatch("/:task");
   const { task } = match.params;
+
+  const  handleClick = () => {
+    TaskList.push({
+      Task: taskName,
+      length: taskLength,
+      labels: []
+
+    });
+    setTaskList(TaskList);
+    store.set("TaskList", TaskList);
+    console.log("creation");
+    console.log(TaskList);
+    history.push("/researcher")
+  };
 
   useEffect(() => {
     const unmount = db.collection("tasks")
@@ -43,7 +63,10 @@ export const Task = () => {
           </aside>
         ))}
       </section>
+
       <footer>
+      <button className="btn btn-primary btn-md 
+      waves-effect text-center m-b-20" onClick={() => handleClick()}> Activate </button>
         <NewImage currentTask={task} />
       </footer>
     </>

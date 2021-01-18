@@ -17,8 +17,10 @@ const Researcher = () => {
   
   // TODO : Get the list from Firebase instead of localstorage
   const [tasks, setTasks] = useState([]);
-  // const [TaskList, setTaskList] = useState([]);
-  // const checkmark = '✓';
+  const [TaskList, setTaskList] = useState(
+    store.get("TaskList") || []
+  );
+  const checkmark = '✓';
   
   // Get the list of Tasks from the database and return it to setTasks
   useEffect(() => {
@@ -37,28 +39,36 @@ const Researcher = () => {
     
 
     <div className="researcher">
-      <div className="container">  
+      <div className="container">
+      <div className="col-lg-7">
+            <h1>Researcher</h1>
+      </div>
+      <br/>
+      <div>
+        <createTask />  
+      </div>
+      <div className="col-lg-7">
+        <HyperLink path="./createTask">
+            <Button>Create New Task</Button>
+        </HyperLink>
+      </div>
         <div className="row align-items-left my-5">
           
-          <Route path="/" render={() => <TaskPage tasks={tasks}/>}/>
-          
-            
-            {/* {
-              TaskList && TaskList.map((TaskItem, idx) => {
+            {TaskList &&
+              TaskList.map((TaskItem, idx) => {
                 return `${TaskItem.length}` <= `${TaskItem.labels.length}` ?
                 <TaskListItem key={`Task-${idx}`}>{`${idx + 1} - ${TaskItem.Task
-                  } - ${TaskItem.labels.length} / ${TaskItem.length} ${checkmark}`}
-                </TaskListItem>
+                  } - ${TaskItem.labels.length} / ${TaskItem.length} ${checkmark}`}</TaskListItem>
                   :
                 <TaskListItem key={`Task-${idx}`}>{`${idx + 1} - ${TaskItem.Task
                 } -  ${TaskItem.labels.length} / ${TaskItem.length}`}</TaskListItem>
               })
-            } */}
+            }
           
           
-          {/* <HyperLink path="/annotator">
-            <Button>Change role to annotator</Button>
-          </HyperLink> */}
+          { <HyperLink path="/alltasks">
+            <Button>See all Tasks</Button>
+          </HyperLink> }
         </div> 
       </div> 
     </div>

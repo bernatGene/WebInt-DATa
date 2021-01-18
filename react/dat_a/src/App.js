@@ -11,6 +11,7 @@ import CreateTask from "./components/createTask"
 import CompleteTask from "./components/CompleteTask"
 import Summary from "./components/Summary"
 import {Task} from "./components/Task"
+import AllTasks from "./components/AllTasks"
 
 
 //Image Handling Imports  
@@ -48,6 +49,7 @@ function App() {
             <Route path="/login" exact component={() => store.get("authorised") ? <Roles /> : <Login />} />{" "}
             <Route path="/Authorised" exact component={() => <AuthorisedPageContainer />} />{" "}
             <Route path="/researcher" exact component={() => <Researcher/>} />{" "}
+            <Route path="/alltasks" exact component={() => <AllTasks/>} />{" "}
             <Route path="/annotator" exact component={() => <Annotator/>} />{" "}
             <Route path="/createTask" exact component={() => <CreateTask/>} />{" "}
             <Route path="/completeTask/:Tasknum" exact component={() => <CompleteTask/>} />{" "}

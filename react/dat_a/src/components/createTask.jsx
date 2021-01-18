@@ -32,10 +32,14 @@ const CreateTask = () => {
   const [taskName, setTaskName] = useState("");
   const [taskLength, setTaskLength] = useState(0);
   const [taskDescription, setTaskDescription] = useState("");
+  const [TaskList, setTaskList] = useState(
+    store.get("TaskList") || []
+  );
   
   
   // Handling Task Parameter Changes
   const onTaskNameChange = (e) => {
+    console.log(TaskList)
     setTaskName(e.target.value);
   };
 
@@ -58,10 +62,17 @@ const CreateTask = () => {
       length: taskLength,
       labels: []
     });
-    setTaskName("");
-    //  console.log(TaskList);
+    TaskList.push({
+      Task: taskName,
+      length: taskLength,
+      labels: []
+    });
+    setTaskList(TaskList);
+    store.set("TaskList", TaskList);
     console.log("creation");
-    history.push("/researcher");
+    console.log(TaskList);
+    history.push("/researcher")
+    setTaskName("");
   };
 
   const history = useHistory();
