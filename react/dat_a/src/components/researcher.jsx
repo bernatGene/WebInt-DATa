@@ -44,16 +44,15 @@ const Researcher = () => {
             <h1>Researcher</h1>
       </div>
       <br/>
-      <div>
-        <createTask />  
-      </div>
+      <div className="row horizontal">
+          { <HyperLink path="/alltasks">
+            <Button>See all Templates</Button>
+          </HyperLink> }
+          <HyperLink path="./createTask">
+            <Button>Create new Task</Button>
+          </HyperLink>
+      </div> 
       <div className="col-lg-7">
-        <HyperLink path="./createTask">
-            <Button>Create New Task</Button>
-        </HyperLink>
-      </div>
-        <div className="row align-items-left my-5">
-          
               {TaskList &&
               TaskList.length > 0 ?
               TaskList.map((TaskItem, idx) => {
@@ -66,15 +65,8 @@ const Researcher = () => {
               })
             :
             <h3>You have no active tasks</h3>
-
           }
-          </div> 
-          <div>
-          { <HyperLink path="/alltasks">
-            <Button>See all Tasks</Button>
-          </HyperLink> }
-          </div>   
-        
+      </div> 
       </div> 
     </div>
     // </div>
