@@ -50,6 +50,7 @@ const CompleteTask = () => {
   const length = (TaskList[parseInt(TaskNum, 10)-1].length)
   const [labels, setLabels] = useState(TaskList[parseInt(TaskNum, 10)-1].labels || []);
   const [completed, setCompleted] = useState(labels.length || 0);
+  const labelsList = (TaskList[parseInt(TaskNum, 10)-1].labelsList)
   
 
 
@@ -88,13 +89,13 @@ const CompleteTask = () => {
             </aside>
           </div>
             <div className="horizontal">
-            <button className="btn btn-primary btn-md waves-effect text-center m-b-20" onClick={() => handleClick(0)}
-            disabled={completed >= length}> Cat </button>
-            
-            <button className="btn btn-primary btn-md waves-effect text-center m-b-20" onClick={() => handleClick(1)}
-            disabled={completed >= length}> Dog </button>
+            {labelsList && 
+              labelsList.map((label, idx) => {
+                return <button className="btn btn-primary btn-md waves-effect text-center m-b-20" onClick={() => handleClick(`${idx}`)}
+            disabled={completed >= length}> {label} </button>
+              })
+            }
             </div>
-          
           <button className="btn btn-primary  btn-md waves-effect text-center m-b-20"
           onClick={handleCompletion}>Complete</button>
           

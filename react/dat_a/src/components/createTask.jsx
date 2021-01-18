@@ -59,7 +59,7 @@ const CreateTask = () => {
       name: taskName,
       description: taskDescription,
       length: taskLength,
-      labels: []
+      labels: ["cat", "dog"]
     });
     TaskList.push({
       Task: taskName,

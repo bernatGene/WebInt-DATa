@@ -16,6 +16,8 @@ export const Task = () => {
     store.get("TaskList") || []
   );
   const [taskDescription, setTaskDescription] = useState("");
+  const [labelsList, setLabelsList] = useState([]);
+
   
 
   const match = useRouteMatch("/:task");
@@ -25,7 +27,8 @@ export const Task = () => {
     TaskList.push({
       Task: taskName,
       length: images.length,
-      labels: []
+      labels: [],
+      labelsList: labelsList
 
     });
     setTaskList(TaskList);
@@ -43,6 +46,7 @@ export const Task = () => {
         setTaskName(doc.data().name);
         setTaskLength(doc.data().length);
         setTaskDescription(doc.data().description);
+        setLabelsList(doc.data().labels || ["0", "1"]);
       });
       return unmount
   }, []);
@@ -59,7 +63,7 @@ export const Task = () => {
         </div>
         <div className="row align-items-left my-5">{images.map((image) => (
           <aside key={image.name}>
-            <img src={image.url} alt="task" />
+            <img src={image.url} alt="Could not load" />
           </aside>
         ))}</div>
       </section>
