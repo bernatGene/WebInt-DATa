@@ -49,7 +49,7 @@ export const Task = () => {
 
   return (
     <>
-      <section>
+      <section className="container">
         <header>
           <h1>{taskName}</h1>
           <p>Go to the <Link to="/researcher">Task page</Link></p>
@@ -57,11 +57,11 @@ export const Task = () => {
         <div>
            <h2>{taskDescription}</h2> 
         </div>
-        {images.map((image) => (
+        <div className="row align-items-left my-5">{images.map((image) => (
           <aside key={image.name}>
             <img src={image.url} alt="task" />
           </aside>
-        ))}
+        ))}</div>
       </section>
 
       <footer>
