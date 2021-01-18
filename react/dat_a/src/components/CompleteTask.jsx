@@ -80,7 +80,7 @@ const CompleteTask = () => {
             <div className="container"> 
           <h1>Complete Task: <span> {TaskName} </span> </h1>
           <h3> Description: </h3>
-          <p> {description}</p> 
+          <p> {taskDescription}</p> 
           <div className="image-container">
             <h1>Image: {completed < length ? completed + 1 : length} / {length}</h1>
             <aside>
