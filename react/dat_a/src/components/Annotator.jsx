@@ -30,6 +30,7 @@ const Annotator = () => {
           <br/>
           <div className="col-lg-7">
             {TaskList &&
+              TaskList.length > 0 ?
               TaskList.map((TaskItem, idx) => {
                 return `${TaskItem.length}` <= `${TaskItem.labels.length}` ?
                 <TaskListItem key={`Task-${idx}`}>{`${idx + 1} - ${TaskItem.Task
@@ -38,7 +39,9 @@ const Annotator = () => {
                 <TaskListItem key={`Task-${idx}`}>{`${idx + 1} - ${TaskItem.Task
                 } -  ${TaskItem.labels.length} / ${TaskItem.length}`}</TaskListItem>
               })
-            }
+            :
+            <h3>There seem to be no tasks for now...</h3>
+          }
           </div>
           <HyperLink path="/researcher">
             <Button>Change role to Researcher</Button>

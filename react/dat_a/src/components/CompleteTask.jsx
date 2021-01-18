@@ -82,15 +82,17 @@ const CompleteTask = () => {
           <h3> Description: </h3>
           <p> {description}</p> 
           <div className="image-container">
-            <h1>Place Holder for image: {completed}</h1>
+            <h1>Image: {completed < length ? completed + 1 : length} / {length}</h1>
             <aside>
-              <img src={images[completed] && images[completed].url} alt="loading"  width="400"/>
+              <img src={images[completed] && images[completed].url} alt="No more images..."  width="400"/>
             </aside>
           </div>
             <div className="horizontal">
-            <button className="btn btn-primary btn-md waves-effect text-center m-b-20" onClick={() => handleClick(0)}> Cat </button>
+            <button className="btn btn-primary btn-md waves-effect text-center m-b-20" onClick={() => handleClick(0)}
+            disabled={completed >= length}> Cat </button>
             
-            <button className="btn btn-primary btn-md waves-effect text-center m-b-20" onClick={() => handleClick(1)}> Dog </button>
+            <button className="btn btn-primary btn-md waves-effect text-center m-b-20" onClick={() => handleClick(1)}
+            disabled={completed >= length}> Dog </button>
             </div>
           
           <button className="btn btn-primary  btn-md waves-effect text-center m-b-20"

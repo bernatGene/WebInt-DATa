@@ -54,7 +54,8 @@ const Researcher = () => {
       </div>
         <div className="row align-items-left my-5">
           
-            {TaskList &&
+              {TaskList &&
+              TaskList.length > 0 ?
               TaskList.map((TaskItem, idx) => {
                 return `${TaskItem.length}` <= `${TaskItem.labels.length}` ?
                 <TaskListItem key={`Task-${idx}`}>{`${idx + 1} - ${TaskItem.Task
@@ -63,13 +64,17 @@ const Researcher = () => {
                 <TaskListItem key={`Task-${idx}`}>{`${idx + 1} - ${TaskItem.Task
                 } -  ${TaskItem.labels.length} / ${TaskItem.length}`}</TaskListItem>
               })
-            }
-          
-          
+            :
+            <h3>You have no active tasks</h3>
+
+          }
+          </div> 
+          <div>
           { <HyperLink path="/alltasks">
             <Button>See all Tasks</Button>
           </HyperLink> }
-        </div> 
+          </div>   
+        
       </div> 
     </div>
     // </div>
