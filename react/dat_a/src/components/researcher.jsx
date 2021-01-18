@@ -17,8 +17,10 @@ const Researcher = () => {
   
   // TODO : Get the list from Firebase instead of localstorage
   const [tasks, setTasks] = useState([]);
-  // const [TaskList, setTaskList] = useState([]);
-  // const checkmark = '✓';
+  const [TaskList, setTaskList] = useState(
+    store.get("TaskList") || []
+  );
+  const checkmark = '✓';
   
   // Get the list of Tasks from the database and return it to setTasks
   useEffect(() => {
@@ -37,29 +39,34 @@ const Researcher = () => {
     
 
     <div className="researcher">
-      <div className="container">  
-        <div className="row align-items-left my-5">
-          
-          <Route path="/" render={() => <TaskPage tasks={tasks}/>}/>
-          
-            
-            {/* {
-              TaskList && TaskList.map((TaskItem, idx) => {
+      <div className="container">
+      <div className="col-lg-7">
+            <h1>Researcher</h1>
+      </div>
+      <br/>
+      <div className="row horizontal">
+          { <HyperLink path="/alltasks">
+            <Button>See all Templates</Button>
+          </HyperLink> }
+          <HyperLink path="./createTask">
+            <Button>Create new Task</Button>
+          </HyperLink>
+      </div> 
+      <div className="col-lg-7">
+              {TaskList &&
+              TaskList.length > 0 ?
+              TaskList.map((TaskItem, idx) => {
                 return `${TaskItem.length}` <= `${TaskItem.labels.length}` ?
                 <TaskListItem key={`Task-${idx}`}>{`${idx + 1} - ${TaskItem.Task
-                  } - ${TaskItem.labels.length} / ${TaskItem.length} ${checkmark}`}
-                </TaskListItem>
+                  } - ${TaskItem.labels.length} / ${TaskItem.length} ${checkmark}`}</TaskListItem>
                   :
                 <TaskListItem key={`Task-${idx}`}>{`${idx + 1} - ${TaskItem.Task
                 } -  ${TaskItem.labels.length} / ${TaskItem.length}`}</TaskListItem>
               })
-            } */}
-          
-          
-          {/* <HyperLink path="/annotator">
-            <Button>Change role to annotator</Button>
-          </HyperLink> */}
-        </div> 
+            :
+            <h3>You have no active tasks</h3>
+          }
+      </div> 
       </div> 
     </div>
     // </div>

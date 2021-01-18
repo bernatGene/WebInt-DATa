@@ -14,8 +14,8 @@ const TaskListItem = ({ children }) => {
 
 	let match = useRouteMatch();
 	let f_showAs = (role) => {
-		if (role == "/researcher") {return "/summary/"}
-		if (role == "/annotator") {return "/completeTask/"}
+		if (role === "/researcher") {return "/summary/"}
+		if (role === "/annotator") {return "/completeTask/"}
 	}
 	let showAs = f_showAs(match.url)
 	const checkmark = '✓';

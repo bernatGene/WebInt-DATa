@@ -13,16 +13,11 @@ export const TaskPage = ({tasks}) => {
 
   return <>
         <div className="col-lg-7">
-            <h1>Researcher</h1>
+            <h1>All stored tasks</h1>
         </div>
         <br/>
         <div>
         <createTask />  
-        </div>
-        <div className="col-lg-7">
-        <HyperLink path="./createTask">
-            <Button>Create New Task</Button>
-        </HyperLink>
         </div>
         <section>
         {tasks.map((Task) => (
