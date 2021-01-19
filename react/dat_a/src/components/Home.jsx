@@ -10,7 +10,7 @@ function Home(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
-  const [passwdchk, setPasswdChk] = useState(false)
+  // const [passwdchk, setPasswdChk] = useState(false)
   const [success, setSuccess] = React.useState(false);
 
   const handleEmailChange = (e) => {
@@ -35,26 +35,17 @@ function Home(props) {
     
     if ( re.test(email) ) {
       store.set("username", email); 
+    }else{
+      alert("The email does not look valid")
     }
 
     if ( repeatPassword === password ){
-      setPasswdChk(true);
-      store.set("password", password); 
-    }
-
-    if ( email && passwdchk ){
+      // setPasswdChk(true);
       setSuccess(true) ;
+      store.set("password", password); 
+    }else{
+      alert("The passwords do not match")
     }
-    else{
-      if(!email){
-        alert("The email does not look valid")
-      }
-      
-      if(!passwdchk){
-        alert("The passwords do not match")
-      }
-    }
-      
     
 
   };
