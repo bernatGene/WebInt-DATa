@@ -10,6 +10,7 @@ import {
 } from "react-router-dom";
 import TaskListItem from "./task-list-item";
 import { useHistory } from "react-router-dom";
+import HyperLink from "./hyperlink";
 // import AuthFormBox from "./auth-form-box";
 import Button from "./button";
 
@@ -108,7 +109,12 @@ const CreateTask = () => {
   return (
     <div>
       <div className="container">
-        <h1>Create a new Task</h1>
+        <header>
+        <h1>Create a new Task Template</h1>
+        Back to <HyperLink path="/researcher">
+            Dashboard
+          </HyperLink>
+        </header>
         <div className='flex-container'>
           <form className='form' onSubmit={onTaskSubmit}>
                 <div>

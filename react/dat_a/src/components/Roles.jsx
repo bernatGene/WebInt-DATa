@@ -7,25 +7,21 @@ function Roles(props) {
   return (
     <div className="roles">
         <div className="container">
-          <div className="row align-items-center my-5">
-          <div className="col-lg-5">
+          <header> 
             <h1 className="font-weight-light">Select Your Role</h1>
-          </div> 
-          <br/>
-          <div className="col-sm-8">
-            {" "}
-            <HyperLink path="/researcher">
-              <Button>Researcher</Button>
-            </HyperLink>
-          </div>
-          <br />
-          <div className="col-sm-8">
-            {" "}
-            <HyperLink path="/annotator">
-              <Button>Annotator</Button>
-            </HyperLink>                  
-          </div>
-          </div>
+          </header>
+          <section className="center row">
+          <aside>
+          <HyperLink path="/researcher">
+            <h1 className="link">Researcher</h1>
+          </HyperLink>
+          </aside>
+          <aside>
+          <HyperLink path="/annotator">
+            <h1 className="link">Annotator</h1>
+          </HyperLink>
+          </aside>                  
+          </section>
       </div>
     </div>
   );

@@ -46,8 +46,9 @@ const Researcher = () => {
             Annotator
           </HyperLink>
       </header>
-      <br/>
-      <div className="row horizontal">
+      
+      <div>
+      <div className="row horizontal right">
           { <HyperLink path="/alltasks">
             <Button>See all Templates</Button>
           </HyperLink> }
@@ -55,7 +56,11 @@ const Researcher = () => {
             <Button>Create new Task</Button>
           </HyperLink>
       </div> 
-      <div className="col-lg-7">
+      <section className="block card">
+      <div className="col-lg-7 card-block moremargin">
+        <h4>Active tasks</h4>
+        <div className="line-separator"></div>
+        <br/>
               {TaskList &&
               TaskList.length > 0 ?
               TaskList.map((TaskItem, idx) => {
@@ -70,9 +75,10 @@ const Researcher = () => {
             <h3>You have no active tasks</h3>
           }
       </div> 
+      </section>
       </div> 
+      </div>
     </div>
-    // </div>
   );
 };
 

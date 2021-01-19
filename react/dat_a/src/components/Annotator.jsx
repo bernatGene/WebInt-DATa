@@ -29,24 +29,26 @@ const Annotator = () => {
               Researcher
             </HyperLink>
         </header>
-        <div className="row align-items-left my-5">
-          <br/>
-          <div className="col-lg-7">
-            {TaskList &&
-              TaskList.length > 0 ?
-              TaskList.map((TaskItem, idx) => {
-                return `${TaskItem.length}` <= `${TaskItem.labels.length}` ?
-                <TaskListItem key={`Task-${idx}`}>{`${idx + 1} - ${TaskItem.Task
-                  } - ${TaskItem.labels.length} / ${TaskItem.length} ${checkmark}`}</TaskListItem>
-                  :
-                <TaskListItem key={`Task-${idx}`}>{`${idx + 1} - ${TaskItem.Task
-                } -  ${TaskItem.labels.length} / ${TaskItem.length}`}</TaskListItem>
-              })
-            :
-            <h3>There seem to be no tasks for now...</h3>
-          }
-          </div>
-        </div> 
+        <div className="block card">
+            <div className="col-lg-7 card-block moremargin">
+            <h4>Available tasks</h4>
+              <div className="line-separator"></div>
+              <br/>
+              {TaskList &&
+                TaskList.length > 0 ?
+                TaskList.map((TaskItem, idx) => {
+                  return `${TaskItem.length}` <= `${TaskItem.labels.length}` ?
+                  <TaskListItem key={`Task-${idx}`}>{`${idx + 1} - ${TaskItem.Task
+                    } - ${TaskItem.labels.length} / ${TaskItem.length} ${checkmark}`}</TaskListItem>
+                    :
+                  <TaskListItem key={`Task-${idx}`}>{`${idx + 1} - ${TaskItem.Task
+                  } -  ${TaskItem.labels.length} / ${TaskItem.length}`}</TaskListItem>
+                })
+              :
+              <h3>There seem to be no tasks for now...</h3>
+            }
+            </div>
+          </div> 
       </div> 
     </div>
 

@@ -34,6 +34,14 @@ div.horizontal  *{
     margin-top: 10px;
 }
 
+div.right {
+    float: center;
+}
+
+div.moremargin {
+    margin-left: 20px;
+}
+
 div.roles {
      margin-bottom: 10px;
 }
@@ -47,6 +55,10 @@ div.roles {
 }
 
 .form-group {
+    margin-bottom: 1.25em
+}
+
+section.block {
     margin-bottom: 1.25em
 }
 
@@ -122,6 +134,11 @@ button {
 h1 {
 color: black; 
 }
+
+h1.link {
+color: #4099ff;
+}
+
 span{
 color: gray;
 }

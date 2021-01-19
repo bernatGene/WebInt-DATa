@@ -6,20 +6,17 @@ import {createTask} from "./createTask"
 
 export const TaskPage = ({tasks}) => {
 
-  return <>
-        <div className="col-lg-7">
-            <header>
+  return (
+
+  <div className="container">
+    <header>
             <h1 className="text-center">All stored templates</h1>
             Back to { <HyperLink path="/researcher">
              dashboard
-          </HyperLink> }
-          </header>
-        </div>
-        <br/>
-        <div>
-        <createTask />  
-        </div>
-        <section>
+            </HyperLink> }
+         </header>
+    <br/>
+    <section>
         {tasks.map((Task) => (
                 <Link to={`/${Task.id}`}>
                     <aside key={Task.name}>
@@ -27,7 +24,7 @@ export const TaskPage = ({tasks}) => {
                     </aside>
                 </Link>
         ))}
-        </section>
+    </section>
         
-  </>
+  </div>)
 }
