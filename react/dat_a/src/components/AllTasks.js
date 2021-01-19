@@ -42,9 +42,6 @@ const AllTasks = () => {
           
           <Route path="/" render={() => <TaskPage tasks={tasks}/>}/>
           
-          { <HyperLink path="/researcher">
-            <Button>Back to dashboard</Button>
-          </HyperLink> }
         </div> 
       </div> 
     </div>

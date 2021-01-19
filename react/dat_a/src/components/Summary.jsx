@@ -49,24 +49,39 @@ const Summary = () => {
   const length = (TaskList[parseInt(TaskNum, 10)-1].length)
   const [labels, setLabels] = useState(TaskList[parseInt(TaskNum, 10)-1].labels || []);
   const [completed, setCompleted] = useState(labels.length || 0);
+  const labelsList = (TaskList[parseInt(TaskNum, 10)-1].labelsList)
   
     return (
-      <div>
-      <div className="container">
-          <h1>Summary of Task: <span> {TaskName} </span> </h1>
-          <h3> Description: </h3>
-          <p> {taskDescription}</p> 
-          <h3> Progress: </h3>
-          <p> {completed} / {length} {completed  >= length ? 'Completed !' : '' } </p>
-          <h4> Just to show the labels: </h4>
-          <p> {labels} </p>
-          <h4> Example Image: </h4>
-            <aside>
-              <img src={images[0] && images[0].url} alt="loading" />
-            </aside>             
-          <HyperLink path="/researcher">
-            <Button>Back to dashboard</Button>
-          </HyperLink>
+      <div className="summary">
+        <div className="container">
+          <div className="auth-box card">
+            <div className="card-block">
+              <h1>Summary of Task: <span> {TaskName} </span> </h1>
+              <h3> Description: </h3>
+              <p> {taskDescription}</p> 
+              <h3> Progress: </h3>
+              <p> {completed} / {length} {completed  >= length ? 'Completed !' : '' } </p>
+            </div>
+            <div className="card-block">
+              <h5> Labels: </h5>
+              <div className="horizontal">
+                  {labelsList && 
+                    labelsList.map((label, idx) => {
+                      return <button className="btn btn-secondary btn-md waves-effect text-center m-b-20" 
+                  disabled={true}> {idx}: {label} </button>
+                    })
+                  }
+              </div>
+              <p> {labels} </p>
+              <h4> Example Image: </h4>
+                <aside>
+                  <img src={images[0] && images[0].url} alt="loading" max-width="200" />
+                </aside>
+            </div>             
+            <HyperLink path="/researcher">
+              <Button>Back to dashboard</Button>
+            </HyperLink>
+          </div>
         </div>
       </div>
     )

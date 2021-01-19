@@ -22,11 +22,14 @@ const Annotator = () => {
   var checkmark = '✓';
   return (
     <div className="annotator">
-      <div className="container">  
+      <div className="container"> 
+        <header>
+          <h1 className="center-text">Annotator</h1>
+          Change role to <HyperLink path="/researcher">
+              Researcher
+            </HyperLink>
+        </header>
         <div className="row align-items-left my-5">
-          <div className="col-lg-7">
-            <h1>Annotator</h1>
-          </div>
           <br/>
           <div className="col-lg-7">
             {TaskList &&
@@ -43,9 +46,6 @@ const Annotator = () => {
             <h3>There seem to be no tasks for now...</h3>
           }
           </div>
-          <HyperLink path="/researcher">
-            <Button>Change role to Researcher</Button>
-          </HyperLink>
         </div> 
       </div> 
     </div>

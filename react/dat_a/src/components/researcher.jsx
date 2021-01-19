@@ -40,9 +40,12 @@ const Researcher = () => {
 
     <div className="researcher">
       <div className="container">
-      <div className="col-lg-7">
-            <h1>Researcher</h1>
-      </div>
+      <header>
+              <h1 className="center-text">Researcher</h1>
+        Change role to <HyperLink path="/annotator">
+            Annotator
+          </HyperLink>
+      </header>
       <br/>
       <div className="row horizontal">
           { <HyperLink path="/alltasks">

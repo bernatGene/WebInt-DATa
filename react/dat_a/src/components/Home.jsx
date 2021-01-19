@@ -63,32 +63,7 @@ function Home(props) {
                 
               </AuthFormBox>
             </div>
-            {/* <div className="row">
-              <div className="col-md-12">
-                <h3 className="text-center heading">Select your Role</h3>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-md-12">
-                {" "}
-                <input
-                  type="submit"
-                  className="btn btn-primary btn-md btn-block waves-effect text-center m-b-20"
-                  name="researcher"
-                  value="Researcher"
-                />
-              </div>
-              <br />
-              <div className="col-md-12">
-                {" "}
-                <input
-                  type="submit"
-                  className="btn btn-primary btn-md btn-block waves-effect text-center m-b-20"
-                  name="annotator"
-                  value="Annotator"
-                />
-              </div> 
-  </div>*/}
+            
             <div className="or-container">
               <div className="line-separator"></div>
               <div className="or-label">or</div>
