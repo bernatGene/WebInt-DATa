@@ -70,35 +70,45 @@ const CompleteTask = () => {
       Task: TaskName,
       description: description,
       length: length,
-      labels: labels
+      labels: labels,
+      labelsList: labelsList
     };
     store.set("TaskList", TaskList);
     history.push("/annotator");
   };
 
     return (
-      <div>
-            <div className="container"> 
-          <h1>Complete Task: <span> {TaskName} </span> </h1>
-          <h3> Description: </h3>
-          <p> {taskDescription}</p> 
-          <div className="image-container">
-            <h1>Image: {completed < length ? completed + 1 : length} / {length}</h1>
-            <aside>
-              <img src={images[completed] && images[completed].url} alt="No more images..."  width="400"/>
-            </aside>
+      <div className="completeTask">
+        <div className="container">
+          <div className="auth-box card" >
+          <div>
+            <button className="btn btn-primary  btn-md waves-effect text-center m-b-20"
+            onClick={handleCompletion}>Quit</button>
           </div>
-            <div className="horizontal">
-            {labelsList && 
-              labelsList.map((label, idx) => {
-                return <button className="btn btn-primary btn-md waves-effect text-center m-b-20" onClick={() => handleClick(`${idx}`)}
-            disabled={completed >= length}> {label} </button>
-              })
-            }
+            <div className="card-block">
+              <h1>Complete Task: <span> {TaskName} </span> </h1>
+              <h3> Description: </h3>
+              <p> {taskDescription}</p>
             </div>
-          <button className="btn btn-primary  btn-md waves-effect text-center m-b-20"
-          onClick={handleCompletion}>Complete</button>
-          
+            <div className="card-block">
+              <div className="horizontal">
+                  {labelsList && 
+                    labelsList.map((label, idx) => {
+                      return <button className="btn btn-primary btn-md waves-effect text-center m-b-20" onClick={() => handleClick(`${idx}`)}
+                  disabled={completed >= length}> {label} </button>
+                    })
+                  }
+              </div>
+            </div>
+            <div className="card-block">
+              <div className="image-container">
+                <h5>Image: {completed < length ? completed + 1 : length} / {length}</h5>
+                <aside>
+                  <img src={images[completed] && images[completed].url} alt="No more images..."  width="400"/>
+                </aside>
+              </div>
+            </div>
+          </div>           
         </div>
       </div>
     )

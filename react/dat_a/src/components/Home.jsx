@@ -9,6 +9,7 @@ import { withRouter } from "react-router-dom";
 function Home(props) {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
+  const [success, setSuccess] = React.useState(false);
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -23,8 +24,7 @@ function Home(props) {
     // Set credentials in localStorage
     store.set("username", email);
     store.set("password", password);
-    alert("Registration successful.Please log In")
-    window.location.reload();
+    setSuccess(true)
   };
   return (
     <div className="home">
@@ -58,6 +58,9 @@ function Home(props) {
                 <div className="buttonContainer">
                   <Button>Register</Button>
                 </div>
+                { success ?
+                  <h6 className="text-center heading success">Registration Successful</h6> : ""}
+                
               </AuthFormBox>
             </div>
             {/* <div className="row">
@@ -93,7 +96,7 @@ function Home(props) {
             </div>
 
             <p className="text-inverse text-center">
-              Already have an account?
+              Already have an account? &nbsp;
               <HyperLink path="/login">Login here</HyperLink>
             </p>
           </div>

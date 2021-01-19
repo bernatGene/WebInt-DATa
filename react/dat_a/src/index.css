@@ -126,6 +126,10 @@ span{
 color: gray;
 }
 
+h6.success {
+    color: green;
+
+}
 
 form {
  padding: remy(32px);
