@@ -15,10 +15,11 @@ function About() {
                     <div className="col-lg-5">
                         <h1 className="font-weight-light">About</h1>
                         <p>
-                            Lorem Ipsum is simply dummy text of the printing and typesetting
-                            industry. Lorem Ipsum has been the industry's standard dummy text
-                            ever since the 1500s, when an unknown printer took a galley of
-                            type and scrambled it to make a type specimen book.
+                        DATa is a Data Annotation Interface is to create a distributed market-space that 
+                        allows the generation of data sets that can be used by Machine learning researchers, 
+                        Data scientists, etc. You can login here either as a researchers who want to get 
+                        annotated data sets for their analysis by posting there task and tracking the 
+                        progress of it or as a annotator who agrees to annotate and complete the posted task.
             </p>
                     </div>
                 </div>
