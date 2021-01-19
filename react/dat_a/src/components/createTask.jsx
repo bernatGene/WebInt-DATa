@@ -33,7 +33,7 @@ const CreateTask = () => {
   
   const forceUpdate = useForceUpdate();
   const [taskName, setTaskName] = useState("");
-  const [newLabel, setNewLabel] = useState("New");
+  const [newLabel, setNewLabel] = useState("");
   const [taskLength, setTaskLength] = useState(0);
   const [labelsList, setLabelsList] = useState(["cat", "dog"]);
   const [taskDescription, setTaskDescription] = useState("");
@@ -77,7 +77,7 @@ const CreateTask = () => {
     });
     setTaskList(TaskList);
     // store.set("TaskList", TaskList);
-    history.push("/researcher")
+    history.push("/alltasks")
     setTaskName("");
   };
 
@@ -90,6 +90,7 @@ const CreateTask = () => {
   const  handleClick = (e) => {
     labelsList.push(e)
     setLabelsList(labelsList)
+    setNewLabel("")
     forceUpdate()
     console.log(labelsList)
   };
@@ -141,30 +142,36 @@ const CreateTask = () => {
                   <div className="horizontal">
                     {labelsList && 
                       labelsList.map((label, idx) => {
-                        return <button type="button" className="btn btn-primary btn-md waves-effect text-center m-b-20" onClick={() => handleDelete(`${idx}`)}
+                        return <button type="button" className="btn btn-secondary btn-md waves-effect text-center m-b-20" onClick={() => handleDelete(`${idx}`)}
                     > {label} </button>
                       })
                     }
+                  </div>
+                  <div className="horizontal">
                     <input 
+                    className="short"
                     name="newlabel"
                     type="text"
                     value={newLabel}
                     onChange={onNewLabelChange}
+                    placeholder="New..."
                     />
-                    <div>
-                     <button type= "button" className="btn btn-primary btn-md waves-effect text-center m-b-20" onClick={() => handleClick(`${newLabel}`)}> Add </button>
-                    </div>
+                  
+                    <button type= "button" className="btn btn-primary btn-md waves-effect text-center m-b-20" onClick={() => handleClick(`${newLabel}`)}> Add </button>
+                    
                   </div>
                 </label>
                 </div>
-                <div>
+                <div className="horizontal">
                 {/* <label> Upload Pictures
                   NewImage
                 </label> */}
-                <Button onClick={onTaskSubmit}>Create</Button>                
-                </div>
+                <button className="btn btn-primary btn-md waves-effect text-center m-b-20">Create</button>
+                <button type="button" className="btn btn-primary btn-md waves-effect text-center m-b-20"
+                onClick={onCancel}>Cancel</button>                
+              </div>
           </form>
-          <button onClick={onCancel}>Cancel</button>
+
         </div>
       </div>
     </div>
