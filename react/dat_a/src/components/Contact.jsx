@@ -15,10 +15,10 @@ function Contact() {
                     <div className="col-lg-5">
                         <h1 className="font-weight-light">Contact</h1>
                         <p>
-                            Lorem Ipsum is simply dummy text of the printing and typesetting
-                            industry. Lorem Ipsum has been the industry's standard dummy text
-                            ever since the 1500s, when an unknown printer took a galley of
-                            type and scrambled it to make a type specimen book.
+                            For any queries contact :-<br/>
+                            1. Aditya MOHAN (aditya.mohan@eurecom.fr)<br/>
+                            2. Bernat G.SKRABEC (gene@eurecom.fr)<br/>
+                            3. Ankita SAHOO (ankita.sahoo@eurecom.fr)
                         </p>
                     </div>
                 </div>
