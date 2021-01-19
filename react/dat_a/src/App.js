@@ -3,15 +3,15 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Home, About, Contact, Login } from "./components";
 import Layout from "./components/layout";
 import AuthorisedPageContainer from "./components/authorised-page-container";
-import Roles from "./components/Roles";
+import Roles from "./pages/Roles";
 import store from "store";
-import Researcher from "./components/researcher";
-import Annotator from "./components/Annotator"
-import CreateTask from "./components/createTask"
-import CompleteTask from "./components/CompleteTask"
-import Summary from "./components/Summary"
-import {Task} from "./components/Task"
-import AllTasks from "./components/AllTasks"
+import Researcher from "./pages/researcher";
+import Annotator from "./pages/Annotator"
+import CreateTask from "./pages/createTask"
+import CompleteTask from "./pages/CompleteTask"
+import Summary from "./pages/Summary"
+import {Task} from "./pages/Task"
+import AllTasks from "./pages/AllTasks"
 
 
 //Image Handling Imports  

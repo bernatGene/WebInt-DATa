@@ -1,5 +1,5 @@
 import React from "react";
-import Roles from "./Roles";
+import Roles from "../pages/Roles";
 
 
 const AuthorisedPageContainer = () => ( 
