@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import store from "store";
 import AuthFormBox from "./auth-form-box";
 import Input from "./input";
@@ -7,8 +7,10 @@ import HyperLink from "./hyperlink";
 import { withRouter } from "react-router-dom";
 
 function Home(props) {
-  const [email, setEmail] = React.useState("");
-  const [password, setPassword] = React.useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [repeatPassword, setRepeatPassword] = useState("");
+  const [passwdchk, setPasswdChk] = useState(false)
   const [success, setSuccess] = React.useState(false);
 
   const handleEmailChange = (e) => {
@@ -19,12 +21,42 @@ function Home(props) {
     setPassword(e.target.value);
   };
 
+  const handleRepeatPasswordChange = (e) => {
+    setRepeatPassword(e.target.value);
+
+    
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     // Set credentials in localStorage
-    store.set("username", email);
-    store.set("password", password);
-    setSuccess(true)
+    
+    let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    
+    if ( re.test(email) ) {
+      store.set("username", email); 
+    }
+
+    if ( repeatPassword === password ){
+      setPasswdChk(true);
+      store.set("password", password); 
+    }
+
+    if ( email && passwdchk ){
+      setSuccess(true) ;
+    }
+    else{
+      if(!email){
+        alert("The email does not look valid")
+      }
+      
+      if(!passwdchk){
+        alert("The passwords do not match")
+      }
+    }
+      
+    
+
   };
   return (
     <div className="home">
@@ -46,6 +78,7 @@ function Home(props) {
                   name="email"
                   placeholder="Email"
                   value={email}
+                  type="email"
                   handleChange={handleEmailChange}
                 />
                 <Input
@@ -53,6 +86,13 @@ function Home(props) {
                   placeholder="Password"
                   value={password}
                   handleChange={handlePasswordChange}
+                  type="password"
+                />
+                <Input
+                  name="Repeat password"
+                  placeholder="Repeat Password"
+                  value={repeatPassword}
+                  handleChange={handleRepeatPasswordChange}
                   type="password"
                 />
                 <div className="buttonContainer">

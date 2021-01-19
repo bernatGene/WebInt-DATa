@@ -10,16 +10,20 @@ function Roles(props) {
           <header> 
             <h1 className="font-weight-light">Select Your Role</h1>
           </header>
-          <section className="center row">
+          <section className="row align-items-center my-5">
           <aside>
-          <HyperLink path="/researcher">
-            <h1 className="link">Researcher</h1>
-          </HyperLink>
+            <div className="col-lg-1">
+              <HyperLink path="/researcher">
+                <h1 className="link">Researcher</h1>
+              </HyperLink>
+            </div>
           </aside>
           <aside>
-          <HyperLink path="/annotator">
-            <h1 className="link">Annotator</h1>
-          </HyperLink>
+            <div className="col-lg">
+              <HyperLink path="/annotator">
+                <h1 className="link">Annotator</h1>
+              </HyperLink>
+            </div>
           </aside>                  
           </section>
       </div>
