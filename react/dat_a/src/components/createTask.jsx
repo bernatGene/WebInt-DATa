@@ -21,15 +21,21 @@ import { app } from "../base";
 
 //---------------------------------------------------------------------
 
-
+function useForceUpdate() {
+    const [value, setValue] = useState(0); // integer state
+    return () => setValue(value => value + 1); // update the state to force render
+}
 
 const db = app.firestore();
 // var TaskName = "Default Task Name";
 
 const CreateTask = () => {
   
+  const forceUpdate = useForceUpdate();
   const [taskName, setTaskName] = useState("");
+  const [newLabel, setNewLabel] = useState("New");
   const [taskLength, setTaskLength] = useState(0);
+  const [labelsList, setLabelsList] = useState(["cat", "dog"]);
   const [taskDescription, setTaskDescription] = useState("");
   const [TaskList, setTaskList] = useState(
     store.get("TaskList") || []
@@ -38,7 +44,6 @@ const CreateTask = () => {
   
   // Handling Task Parameter Changes
   const onTaskNameChange = (e) => {
-    console.log(TaskList)
     setTaskName(e.target.value);
   };
 
@@ -48,6 +53,10 @@ const CreateTask = () => {
 
   const onTaskLengthChange = (e) => {
     setTaskLength(e.target.value);
+  };
+
+  const onNewLabelChange = (e) => {
+    setNewLabel(e.target.value);
   };
   
   // Handling Task Submit 
@@ -59,7 +68,7 @@ const CreateTask = () => {
       name: taskName,
       description: taskDescription,
       length: taskLength,
-      labels: ["cat", "dog"]
+      labels: labelsList
     });
     TaskList.push({
       Task: taskName,
@@ -77,6 +86,21 @@ const CreateTask = () => {
     history.push("/researcher")
     setTaskName("");
   };
+
+  const  handleClick = (e) => {
+    labelsList.push(e)
+    setLabelsList(labelsList)
+    forceUpdate()
+    console.log(labelsList)
+  };
+
+  const  handleDelete = (e) => {
+    labelsList.splice(e, 1)
+    setLabelsList(labelsList)
+    forceUpdate()
+    console.log(labelsList)
+  };
+
 
   const history = useHistory();  
   
@@ -98,7 +122,7 @@ const CreateTask = () => {
                 <div>
                   <label> Type of task
                   <select >
-                      <option selected value="binary">Binary classification</option>
+                      <option selected value="binary">Classification</option>
                       <option value="other">Other (Unsupported)</option>
                   </select>    
                   </label>
@@ -113,12 +137,24 @@ const CreateTask = () => {
                 </label>
                 </div>
                 <div>
-                <label> Dataset length (# of Pictures)
-                <input
-                  name="numpic"
-                  type="number"
-                  value={taskLength}
-                  onChange={onTaskLengthChange}/>
+                <label> Label names
+                  <div className="horizontal">
+                    {labelsList && 
+                      labelsList.map((label, idx) => {
+                        return <button type="button" className="btn btn-primary btn-md waves-effect text-center m-b-20" onClick={() => handleDelete(`${idx}`)}
+                    > {label} </button>
+                      })
+                    }
+                    <input 
+                    name="newlabel"
+                    type="text"
+                    value={newLabel}
+                    onChange={onNewLabelChange}
+                    />
+                    <div>
+                     <button type= "button" className="btn btn-primary btn-md waves-effect text-center m-b-20" onClick={() => handleClick(`${newLabel}`)}> Add </button>
+                    </div>
+                  </div>
                 </label>
                 </div>
                 <div>
